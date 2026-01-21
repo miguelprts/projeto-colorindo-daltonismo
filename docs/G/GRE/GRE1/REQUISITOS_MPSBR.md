@@ -39,7 +39,7 @@ Total de 23 requisitos levantados e revisados pela equipe de engenharia.
 | **RD02** | Normalização | Limpeza automática de caracteres especiais e espaços em códigos HEX. |
 | **RD03** | Cache de Tradução | Uso de memória cache (`lru_cache`) para evitar requisições externas repetidas. |
 | **RD04** | Validação de Carga | Impedir o início do servidor caso o dataset esteja ausente ou corrompido. |
-| **RD05** | Filtro de Similaridade | Ignorar resultados de busca por nome com similaridade inferior a 60%. |
+| **RD05** | Filtro de Similaridade | Ignorar resultados de busca por nome com similaridade inferior a 95%. |
 
 ### 2.4 Requisitos de Interface (RI)
 | ID | Nome | Descrição |
