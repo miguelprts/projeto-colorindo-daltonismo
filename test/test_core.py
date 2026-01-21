@@ -3,6 +3,7 @@ import pytest
 from app.services.color_manager import ColorManager
 from app.data.repository import ColorRepository
 from app.services.translation import GoogleTranslationService
+from unittest.mock import MagicMock
 from app.core.math_utils import PerceptualColorMath # Importe o serviço aqui
 
 def test_busca_fuzzy_rigorosa_95_percent_RD05():
