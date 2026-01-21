@@ -1,0 +1,30 @@
+ID,Requisito,Implementação (Arquivo:Classe/Método),Arquivo de Teste (Sugestão)
+RF01,Busca por Hexadecimal,app/data/repository.py: find_nearest_by_hex,tests/test_repository.py
+RF02,Conversão por Nome,app/data/repository.py: find_by_name_fuzzy,tests/test_repository.py
+RF03,Tradução EN para PT,app/services/translation.py: translate,tests/test_translation.py
+RF04,Tradução PT para EN,app/services/color_manager.py: identify_by_name,tests/test_manager.py
+RF05,Fuzzy Matching,app/data/repository.py: find_by_name_fuzzy,tests/test_repository.py
+RF06,Cálculo Perceptual HSL,app/core/math_utils.py: calculate_distance,tests/test_math.py
+RF07,Endpoint Health,app/main.py: health,tests/test_main.py
+RF08,Navegação Web,app/main.py: read_index / read_converter,tests/test_main.py
+,,,
+ID,Requisito,Implementação (Evidência Técnica),Arquivo de Teste
+RNF01,Princípios SOLID,Estrutura de pastas e app/core/interfaces.py,(Auditoria de Código)
+RNF02,Baixa Latência,Uso de FastAPI e @lru_cache na Tradução,tests/test_performance.py
+RNF03,Portabilidade,Lógica de base_dir em app/main.py,(Teste de Ambiente)
+RNF04,Modularidade,Injeção de dependência no ColorManager,tests/test_manager.py
+RNF05,Testabilidade,Separação da lógica core em app/core/,(Configuração Pytest)
+,,,
+Coluna 1,Coluna 2,Coluna 3,Coluna 4
+RD01,Persistência CSV,app/data/repository.py: pd.read_csv,tests/test_data.py
+RD02,Normalização,app/data/repository.py: _normalize_data,tests/test_data.py
+RD03,Cache de Tradução,app/services/translation.py: @lru_cache,tests/test_translation.py
+RD04,Validação de Carga,app/main.py: csv_path verification,tests/test_main.py
+RD05,Filtro de Similaridade,app/services/color_manager.py: similarity < 0.6,tests/test_manager.py
+,,,
+ID,Requisito,Implementação (Arquivo:Elemento/Script),Arquivo de Teste
+RI01,Design Responsivo,templates/*.html: Media Queries CSS,(Teste Visual/Mobile)
+RI02,Swatch Dinâmico,templates/*.html: previewSwatch.style.backgroundColor,(Teste E2E)
+RI03,Feedback de Erro,templates/*.html: showError(msg),(Teste E2E)
+RI04,Feedback de Sucesso,templates/*.html: showSuccess(msg),(Teste E2E)
+RI05,Prevenção de Erro,templates/*.html: convertBtn.disabled = true,(Teste E2E)
