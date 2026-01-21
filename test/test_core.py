@@ -1,5 +1,6 @@
 # test/test_core.py
 import pytest
+from app.services.color_manager import ColorManager
 from app.data.repository import ColorRepository
 from app.services.translation import GoogleTranslationService
 from app.core.math_utils import PerceptualColorMath # Importe o serviço aqui
@@ -43,3 +44,16 @@ def test_traducao_e_cache_RD03():
     # O segundo chamado deve vir do cache (comportamento interno do Python)
     resultado_cache = service.translate("Red", target="pt")
     assert resultado_cache == resultado
+
+def test_fluxo_completo_identificacao_95_percent():
+    # Setup com Injeção de Dependência (SOLID)
+    math_service = PerceptualColorMath()
+    repo = ColorRepository(csv_path="color_names.csv", math_service=math_service)
+    trans = GoogleTranslationService()
+    manager = ColorManager(repo=repo, translator=trans)
+    
+    # Testando identificação HEX (RF01)
+    # Supondo que #FF0000 esteja no CSV como "Red"
+    resultado = manager.identify_by_hex("#FF0000")
+    assert "name_pt_br" in resultado
+    assert resultado["name_pt_br"] == "Vermelho"
