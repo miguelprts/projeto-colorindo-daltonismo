@@ -19,3 +19,15 @@ def test_busca_fuzzy_rigorosa_95_percent_RD05():
     
     assert result_exact is not None
     assert sim_exact >= 0.95
+
+def test_calculo_distancia_hsl_RF06():
+    math_service = PerceptualColorMath()
+    
+    # Cores idênticas devem ter distância zero
+    cor_a = (120, 50, 50) # Verde
+    assert math_service.calculate_distance(cor_a, cor_a) == 0
+    
+    # Verde (120) deve ser mais perto de Ciano (180) do que de Vermelho (0)
+    dist_verde_ciano = math_service.calculate_distance((120, 100, 50), (180, 100, 50))
+    dist_verde_vermelho = math_service.calculate_distance((120, 100, 50), (0, 100, 50))
+    assert dist_verde_ciano < dist_verde_vermelho
